@@ -24,7 +24,10 @@ namespace WPFLogin.ViewModels
 
         public string Username
         {
-            get { return _username; }
+            get 
+            { 
+                return _username; 
+            }
             set 
             { 
                 _username = value;
@@ -33,7 +36,10 @@ namespace WPFLogin.ViewModels
         }
         public SecureString Password 
         { 
-            get{ return _password; }
+            get
+            { 
+                return _password; 
+            }
             set
             {
                 _password = value;
@@ -42,7 +48,10 @@ namespace WPFLogin.ViewModels
         }
         public string ErrorMessage 
         { 
-            get{ return _errorMessage; } 
+            get
+            { 
+                return _errorMessage; 
+            } 
             set
             { 
                 _errorMessage = value;
@@ -75,9 +84,19 @@ namespace WPFLogin.ViewModels
             RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPasswordCommand("", ""));
         }
 
-        private void ExecuteRecoverPasswordCommand(string username, string email)
+        private bool CanExecuteLoginCommand(object obj)
         {
-            throw new NotImplementedException();
+            bool validateData;
+            if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 ||
+                Password == null || Password.Length < 3)
+            {
+                validateData = false;
+            }
+            else
+            {
+                validateData = true;
+            }
+            return validateData;
         }
 
         private void ExecuteLoginCommand(object obj)
@@ -95,19 +114,9 @@ namespace WPFLogin.ViewModels
             }
         }
 
-        private bool CanExecuteLoginCommand(object obj)
+        private void ExecuteRecoverPasswordCommand(string username, string email)
         {
-            bool validateData;
-            if(string.IsNullOrWhiteSpace(Username) || Username.Length < 3 ||
-                Password ==null || Password.Length < 3)
-            {
-                validateData = true;
-            }
-            else
-            {
-                validateData = false;
-            }
-            return validateData;
-        }
+            throw new NotImplementedException();
+        }                
     }
 }
