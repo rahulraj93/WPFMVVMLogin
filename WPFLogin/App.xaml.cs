@@ -22,7 +22,7 @@ namespace WPFLogin
             {
                 if(loginView.IsVisible ==false && loginView.IsLoaded)
                 {
-                    var mainView = new MainWindow();
+                    var mainView = new MainView();
                     mainView.Show();
                     loginView.Close();
                 }
