@@ -48,8 +48,7 @@ namespace WPFLogin.ViewModels
             }
             else
             {
-                MessageBox.Show("Invalid user not logged in");
-                Application.Current.Shutdown();
+                CurrentUserAccount.DisplayName = "User not Logged in";
             }
         }
     }
