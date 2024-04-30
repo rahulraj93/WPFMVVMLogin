@@ -12,7 +12,7 @@ namespace WPFLogin.Repositories
         private readonly string _connectionString;
         public RepositoryBase()
         {
-            _connectionString = "Server = (localdb)\\MSSQLLocalDB; Database=MVVMLoginDb; Integrated Security=true;";
+            _connectionString = "Server = DESKTOP-7BNG7VR; Database=MVVMLoginDb; Integrated Security=true;";
         }
 
         protected SqlConnection GetConnection()
